@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import bg from "./assets/background.jpg";
+import Overview from "./main/Overview";
+import Contact from "./main/Contact";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="w-screen h-screen">
+        <Navbar />
+        <div className="h-[92vh] text-white overflow-scroll">
+          {/* img-container */}
+          <div
+            className="h-[80vh] flex justify-center items-center flex-col"
+            style={{
+              backgroundImage: `url(${bg})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <span className="text-[4rem] font-bold">Sorem</span>
+            <span className="mb-[8rem] py-[1rem] text-[1.5rem]">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut,
+              molestias.
+            </span>
+          </div>
+          {/* Overview */}
+          <Overview />
+          {/* contact */}
+          <Contact />
+          {/* footer */}
+          <Footer />
+        </div>
+        {/* Sorem Website */}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
